@@ -161,7 +161,7 @@ def main():
         sig_exit_handler(0, None)
 
     # Register configuration data node listeners
-    CONF_DATA_HANDLES.register(KnotConfServerListener(datastore, "/dns-server:dns-server/server-options"))
+    #$CONF_DATA_HANDLES.register(KnotConfServerListener(datastore, "/dns-server:dns-server/server-options"))
     CONF_DATA_HANDLES.register(KnotConfLogListener(datastore, "/dns-server:dns-server/knot-dns:log"))
     CONF_DATA_HANDLES.register(KnotConfZoneListener(datastore, "/dns-server:dns-server/zones/zone"))
     CONF_DATA_HANDLES.register(KnotConfControlListener(datastore, "/dns-server:dns-server/knot-dns:control-socket"))
