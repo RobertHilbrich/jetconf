@@ -1,10 +1,11 @@
 .. |date| date::
 
 *******
-JetConf
+JetConf 
 *******
-
-:Author: Pavel Špírek <pavel.spirek@nic.cz>
+This project is fork of original Jetconf By Pavel Špírek <pavel.spirek@nic.cz>
+Primary objective is to make this generic and not tied to knotdns. 
+:Author: syed s <sk.syed2@gmail.com>
 :Date: |date|
 
 *JetConf* is an implementation of the RESTCONF_ protocol written in
@@ -23,7 +24,8 @@ Installation
 
 ::
 
-   python -m pip install jetconf
+   Download this repository and do:
+   python3.5 run.py
 
 Note that *JetConf* requires Python 3.5.
 
