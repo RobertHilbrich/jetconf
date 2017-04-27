@@ -3,10 +3,13 @@
 *******
 JetConf 
 *******
-This project is fork of original Jetconf By Pavel Špírek <pavel.spirek@nic.cz>
-Primary objective is to make this generic and not tied to knotdns. 
 :Author: syed s <sk.syed2@gmail.com>
 :Date: |date|
+
+This project is fork of original Jetconf 
+By Pavel Špírek <pavel.spirek@nic.cz>
+
+Primary objective is to make this generic and not tied to knotdns.
 
 *JetConf* is an implementation of the RESTCONF_ protocol written in
 Python 3. Main features:
