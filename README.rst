@@ -28,8 +28,14 @@ Installation
 ::
 
    Download this repository and do:
-   python3.5 run.py
-
+   python3.5 run.py -c jc-config.yaml
+   
+   Defaults in the jc-config:
+      The yang model used: yang-data/yang-library-data.json
+      The Datatstore used: data/example-data.json
+   The test case for this:
+      tests/jc_test_edit_ds.sh
+    This test uses curl to edit the data store item, using json text as input and HTTP PUT operation.
 Note that *JetConf* requires Python 3.5.
 
 Links
