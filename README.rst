@@ -26,7 +26,10 @@ Installation
 ============
 
 ::
-
+   Prerequisites:
+       python3.5
+       yangson-1.3.4
+       
    Download this repository and do:
    python3.5 run.py -c jc-config.yaml
    
@@ -36,7 +39,7 @@ Installation
    The test case for this:
       tests/jc_test_edit_ds.sh
     This test uses curl to edit the data store item, using json text as input and HTTP PUT operation.
-Note that *JetConf* requires Python 3.5.
+
 
 Links
 =====
