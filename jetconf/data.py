@@ -305,7 +305,6 @@ class BaseDatastore:
                 sch_pth_list.append(MemberName(input_member_name, None))
 
             sch_pth = DataHelpers.ii2str(sch_pth_list)
-            print(sch_pth)
             sn = self.get_schema_node(sch_pth)
 
             if sn is None:
