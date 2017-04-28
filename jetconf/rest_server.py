@@ -1,3 +1,5 @@
+import os
+#os.environ['PYTHONASYNCIODEBUG'] = '1'
 import asyncio
 import ssl
 
@@ -6,6 +8,7 @@ from collections import OrderedDict
 from colorlog import error, warning as warn, info
 from typing import List, Tuple, Dict, Callable, Optional
 
+from h2.config import H2Configuration
 from h2.connection import H2Connection
 from h2.errors import PROTOCOL_ERROR, ENHANCE_YOUR_CALM
 from h2.exceptions import ProtocolError
@@ -59,7 +62,8 @@ class HttpHandlerList:
 
 class H2Protocol(asyncio.Protocol):
     def __init__(self):
-        self.conn = H2Connection(client_side=False)
+        config = H2Configuration(client_side=False, header_encoding='utf-8')
+        self.conn = H2Connection(config=config)
         self.transport = None
         self.stream_data = {}       # type: Dict[int, RequestData]
         self.resp_stream_data = {}  # type: Dict[int, ResponseData]

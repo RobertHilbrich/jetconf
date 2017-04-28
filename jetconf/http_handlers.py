@@ -14,7 +14,6 @@ from yangson.schemanode import ContainerNode, ListNode, GroupNode, LeafListNode,
 from yangson.instance import NonexistentInstance, InstanceValueError, RootNode
 from yangson.datatype import YangTypeError
 
-from .knot_api import KnotError
 from .config import CONFIG_GLOBAL, CONFIG_HTTP, CONFIG_NACM, API_ROOT_data, API_ROOT_STAGING_data, API_ROOT_ops
 from .helpers import CertHelpers, DateTimeHelpers, ErrorHelpers, LogHelpers, SSLCertT
 from .nacm import NacmForbiddenError

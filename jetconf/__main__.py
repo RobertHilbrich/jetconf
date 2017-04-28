@@ -18,15 +18,8 @@ from .config import CONFIG_GLOBAL, CONFIG_KNOT, load_config, print_config
 from .data import JsonDatastore
 from .helpers import DataHelpers, ErrorHelpers
 from .handler_list import OP_HANDLERS, STATE_DATA_HANDLES, CONF_DATA_HANDLES
-from .knot_api import KNOT, knot_connect, knot_disconnect
+from .tsn_api import tsn_connect, tsn_disconnect
 from .usr_op_handlers import OP_HANDLERS_IMPL
-from .usr_conf_data_handlers import (
-    KnotConfServerListener,
-    KnotConfLogListener,
-    KnotConfZoneListener,
-    KnotConfControlListener,
-    KnotConfAclListener
-)
 
 
 def main():
@@ -147,7 +140,7 @@ def main():
     datastore = JsonDatastore(datamodel, CONFIG_GLOBAL["DATA_JSON_FILE"], "DNS data", with_nacm=False)
     try:
         datastore.load()
-        datastore.load_yl_data(yang_lib_file)
+        #datastore.load_yl_data(yang_lib_file)
     except (FileNotFoundError, YangsonException) as e:
         error("Could not load JSON datastore " + CONFIG_GLOBAL["DATA_JSON_FILE"])
         error(ErrorHelpers.epretty(e))
@@ -161,26 +154,17 @@ def main():
         sig_exit_handler(0, None)
 
     # Register configuration data node listeners
-    #$CONF_DATA_HANDLES.register(KnotConfServerListener(datastore, "/dns-server:dns-server/server-options"))
-    CONF_DATA_HANDLES.register(KnotConfLogListener(datastore, "/dns-server:dns-server/knot-dns:log"))
-    CONF_DATA_HANDLES.register(KnotConfZoneListener(datastore, "/dns-server:dns-server/zones/zone"))
-    CONF_DATA_HANDLES.register(KnotConfControlListener(datastore, "/dns-server:dns-server/knot-dns:control-socket"))
-    CONF_DATA_HANDLES.register(KnotConfAclListener(datastore, "/dns-server:dns-server/access-control-list"))
+    # TODO
 
     # Register op handlers
-    OP_HANDLERS.register("dns-zone-rpcs:begin-transaction", OP_HANDLERS_IMPL.zone_begin_transaction)
-    OP_HANDLERS.register("dns-zone-rpcs:commit-transaction", OP_HANDLERS_IMPL.zone_commit_transaction)
-    OP_HANDLERS.register("dns-zone-rpcs:abort-transaction", OP_HANDLERS_IMPL.zone_abort_transaction)
-    OP_HANDLERS.register("dns-zone-rpcs:zone-set", OP_HANDLERS_IMPL.zone_set)
-    OP_HANDLERS.register("dns-zone-rpcs:zone-unset", OP_HANDLERS_IMPL.zone_unset)
+    # TODO
 
     # Create and register state data node listeners
     usr_state_data_handlers.create_zone_state_handlers(STATE_DATA_HANDLES, datamodel)
 
-    # Initialize Knot control interface
-    KNOT.set_socket(CONFIG_KNOT["SOCKET"])
-    datastore.commit_begin_callback = knot_connect
-    datastore.commit_end_callback = knot_disconnect
+    # datastore callbacks TODO
+    datastore.commit_begin_callback = tsn_connect
+    datastore.commit_end_callback = tsn_disconnect
 
     # Create HTTP server
     rest_srv = RestServer()

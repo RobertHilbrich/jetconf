@@ -5,10 +5,9 @@ from colorlog import error
 from yangson.datamodel import DataModel
 from yangson.instance import InstanceRoute, InstanceNode, EntryKeys, NonexistentInstance, RootNode
 
-from .knot_api import KNOT, KnotInternalError
 from .helpers import DataHelpers, JsonNodeT
 from .handler_list import StateDataHandlerList
-from .usr_op_handlers import OP_HANDLERS_IMPL as OH, KnotZoneCmd
+from .usr_op_handlers import OP_HANDLERS_IMPL as OH, UserCmd
 
 
 class StateNonexistentInstance(NonexistentInstance):
@@ -254,7 +253,7 @@ class ZoneDataStateHandler(ListNodeHandlerBase):
                 if domain_name != input_domain:
                     continue
 
-                if knot_op.cmd == KnotZoneCmd.SET:
+                if knot_op.cmd == UserCmd.SET:
                     input = knot_op.op_input
                     rrset_out = zone_data["rrset"]
 
@@ -297,7 +296,7 @@ class ZoneDataStateHandler(ListNodeHandlerBase):
                         }
                         rrset_out.append(rr_new)
 
-                elif knot_op.cmd == KnotZoneCmd.UNSET:
+                elif knot_op.cmd == UserCmd.UNSET:
                     # zone-unset zone owner [type [rdata]]
                     input = knot_op.op_input
                     rrset_out = zone_data["rrset"]
