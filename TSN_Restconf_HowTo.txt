@@ -1,0 +1,30 @@
+
+Yang Model:
+-----------
+The TSN yang model for 802.1Qbv is defined by these:
+
+  iana-if-type.yang
+  ieee802-dot1q-bridge.yang
+  ieee802-dot1q-sched.yang
+  ieee802-dot1q-types.yang
+  ieee802-types.yang
+  ietf-interfaces.yang
+
+
+How to use:
+-----------
+  Use example-data-qbv.json as data file and yang-library-data-qbv.json as yang 
+library file.
+
+How to test:
+-----------
+  Refer jc_test_edit_qbv.sh to modify/edit qbv schedule.
+
+
+Plugin:
+--------
+Uset tsn_connect plugin from jetconf/tsn_api.py to plugin your own ioctl/config API to 
+configure your 802.1Qbv HW.
+
+
+

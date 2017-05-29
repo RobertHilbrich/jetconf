@@ -1,0 +1,50 @@
+{
+  "ietf-yang-library:modules-state": {
+    "module-set-id": "9a9b7d2d28d4d78fa42e12348346990e3fb1c1b9",
+    "module": [
+      {
+        "name": "ieee802-dot1q-sched",
+        "namespace": "http://example.com/ieee802-dot1q-sched",
+        "feature": [ "scheduled-traffic" ],
+        "revision": "",
+        "conformance-type": "implement"
+      },
+      {
+        "name": "ietf-yang-types",
+        "namespace": "http://example.com/ietf-yang-types",
+        "revision": "2013-07-15",
+        "conformance-type": "implement"
+      },
+      {
+        "name": "ieee802-dot1q-types",
+        "namespace": "http://example.com/ieee802-dot1q-types",
+        "revision": "",
+        "conformance-type": "implement"
+      },
+      {
+        "name": "ietf-interfaces",
+        "namespace": "http://example.com/ietf-interfaces",
+        "revision": "",
+        "conformance-type": "implement"
+      },
+      {
+        "name": "ieee802-dot1q-bridge",
+        "namespace": "http://example.com/ieee802-dot1q-bridge",
+        "revision": "",
+        "conformance-type": "implement"
+      },
+      {
+        "name": "ieee802-types",
+        "namespace": "http://example.com/ieee802-types",
+        "revision": "",
+        "conformance-type": "implement"
+      },
+      {
+        "name": "iana-if-type",
+        "namespace": "http://example.com/iana-if-type",
+        "revision": "",
+        "conformance-type": "implement"
+      }
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+{
+    "ietf-interfaces:interfaces": {
+        "interface": [
+            {
+                "type": "ethernetCsmacd",
+                "ieee802-dot1q-bridge:bridge-port": {
+                    "ieee802-dot1q-sched:gate-parameters": {
+                        "config-change": true,
+                        "admin-control-list": [
+                            {
+                                "sgs-params": {
+                                    "time-interval-value": 12470,
+                                    "gate-states-value": 16
+                                },
+                                "index": 0
+                            },
+                            {
+                                "sgs-params": {
+                                    "time-interval-value": 13245,
+                                    "gate-states-value": 239
+                                },
+                                "index": 1
+                            },
+                            {
+                                "sgs-params": {
+                                    "time-interval-value": 13045,
+                                    "gate-states-value": 255
+                                },
+                                "index": 2
+                            }
+                        ],
+                        "admin-control-list-length": 2,
+                        "admin-cycle-time": {
+                            "numerator": 500,
+                            "denominator": 1000500
+                        },
+                        "admin-base-time": {
+                            "fractional-seconds": "0",
+                            "seconds": "0"
+                        }
+                    }
+                },
+                "enabled": true,
+                "name": "eth0"
+            }
+        ]
+    }
+}
